@@ -1,0 +1,78 @@
+\documentclass[20pt]{extarticle}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{pgfmath}
+\pagestyle{empty}
+
+\usepackage{catchfile}
+\newcommand{\getenvdefault}[3]{%
+  \CatchFileEdef{#1}{"|echo $#2"}{\endlinechar=-1 }%
+  \ifx#1\empty\def#1{#3}\fi
+}
+\getenvdefault{\addend}{ADDEND}{2}
+
+\newcommand{\problem}[1]{%
+  \begin{tabular}[t]{r}
+    $\mathsf{#1}$ \\
+    $\mathsf{+\; \addend}$ \\
+    \hline
+    \\[1.5em]
+  \end{tabular}%
+}
+
+\newcommand{\randproblem}{%
+  \pgfmathrandominteger{\val}{0}{12}%
+  \problem{\val}%
+}
+
+\newcommand{\drillpage}{%
+\begin{center}
+  {\Large \textbf{Timed Drill Practice}}\\[0.2cm]
+  {\large \textbf{Addition: +\addend}}\\[0.2cm]
+  1 minute
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+
+\vspace{0.5cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+
+\vspace{0.5cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+
+\vspace{0.5cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+
+\vspace{0.5cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+}
+
+\begin{document}
+
+\drillpage\newpage
+\drillpage\newpage
+\drillpage\newpage
+\drillpage\newpage
+\drillpage
+
+\end{document}
