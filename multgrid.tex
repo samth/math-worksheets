@@ -1,0 +1,75 @@
+\documentclass[20pt]{extarticle}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{tikz}
+\usepackage{pgfmath}
+\pagestyle{empty}
+
+% Multiplication grid puzzle:
+%
+%  +-----×-----+
+%  |     |     |
+%  | [?] | [?] | row1 product
+%  |     |     |
+%  ×-----+-----×
+%  |     |     |
+%  | [?] | [?] | row2 product
+%  |     |     |
+%  +-----×-----+
+%     |     |
+%   col1  col2
+%  prod   prod
+%
+% Student fills in the 4 cells. Constraint numbers below and right.
+
+\newcommand{\multigrid}[4]{%
+  % #1=a (top-left), #2=b (top-right), #3=c (bottom-left), #4=d (bottom-right)
+  \pgfmathtruncatemacro{\rowone}{#1*#2}%
+  \pgfmathtruncatemacro{\rowtwo}{#3*#4}%
+  \pgfmathtruncatemacro{\colone}{#1*#3}%
+  \pgfmathtruncatemacro{\coltwo}{#2*#4}%
+  \begin{tikzpicture}[
+    every node/.style={font=\large\sffamily},
+  ]
+    % The box
+    \draw[thick] (0,0) rectangle (3.6,-3.6);
+    % Internal lines
+    \draw (1.8,0) -- (1.8,-3.6);
+    \draw (0,-1.8) -- (3.6,-1.8);
+    % × symbols on internal borders between cells
+    \node[fill=white, inner sep=1pt] at (1.8,-0.9) {$\times$};
+    \node[fill=white, inner sep=1pt] at (1.8,-2.7) {$\times$};
+    \node[fill=white, inner sep=1pt] at (0.9,-1.8) {$\times$};
+    \node[fill=white, inner sep=1pt] at (2.7,-1.8) {$\times$};
+    % Row products (right)
+    \draw (3.6,-0.9) -- (4.0,-0.9);
+    \node[right] at (4.0,-0.9) {\rowone};
+    \draw (3.6,-2.7) -- (4.0,-2.7);
+    \node[right] at (4.0,-2.7) {\rowtwo};
+    % Column products (below)
+    \draw (0.9,-3.6) -- (0.9,-4.0);
+    \node[below] at (0.9,-4.0) {\colone};
+    \draw (2.7,-3.6) -- (2.7,-4.0);
+    \node[below] at (2.7,-4.0) {\coltwo};
+  \end{tikzpicture}%
+}
+
+% \grid is the entry point used by grids.tex; just an alias
+\let\grid\multigrid
+
+% Grid counter for page layout
+\newcounter{gridnum}
+\setcounter{gridnum}{0}
+
+\newcommand{\startpage}{%
+\begin{center}
+  {\Large \textbf{Multiplication Grid Puzzles}}\\[0.2cm]
+  {\large Fill in the missing numbers}
+\end{center}
+\vspace{0.8cm}
+\noindent
+}
+
+\begin{document}
+\startpage
+\input{grids.tex}
+\end{document}
