@@ -16,7 +16,7 @@ CELL_MAX = 10
 COLS = 3
 ROWS = 3
 GRIDS_PER_PAGE = COLS * ROWS
-PAGES = 5
+PAGES = 10
 TOTAL = GRIDS_PER_PAGE * PAGES
 
 # Build list of all valid tuples
