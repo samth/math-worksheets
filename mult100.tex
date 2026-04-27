@@ -1,0 +1,72 @@
+\documentclass[20pt]{extarticle}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{pgfmath}
+\pagestyle{empty}
+
+\newcommand{\problem}[2]{%
+  \begin{tabular}[t]{r}
+    $\mathsf{#1}$ \\
+    $\mathsf{\times\; #2}$ \\
+    \hline
+    \\[1.5em]
+  \end{tabular}%
+}
+
+\newcommand{\randproblem}{%
+  \pgfmathrandominteger{\valone}{0}{12}%
+  \pgfmathrandominteger{\valtwo}{0}{12}%
+  \problem{\valone}{\valtwo}%
+}
+
+\newcommand{\drillpage}{%
+\begin{center}
+  {\Large \textbf{Timed Drill Practice}}\\[0.2cm]
+  {\large \textbf{Mixed Multiplication}}\\[0.2cm]
+  100 problems
+\end{center}
+
+\vspace{0.3cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+
+\vspace{0.5cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+
+\vspace{0.5cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+
+\vspace{0.5cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+
+\vspace{0.5cm}
+
+\noindent
+\makebox[\textwidth]{%
+  \randproblem\hfill\randproblem\hfill\randproblem\hfill\randproblem%
+}
+}
+
+\begin{document}
+
+\drillpage\newpage
+\drillpage\newpage
+\drillpage\newpage
+\drillpage\newpage
+\drillpage
+
+\end{document}

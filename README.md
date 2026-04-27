@@ -17,6 +17,8 @@ make times        # defaults to N=2
 make add N=5      # generates add5.pdf (addition: +5)
 make add N=9      # generates add9.pdf (addition: +9)
 make add          # defaults to N=2
+
+make mult100      # generates mult100.pdf (100 mixed multiplication problems)
 ```
 
 Each run produces fresh random problems. Rebuild to get a new set.

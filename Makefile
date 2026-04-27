@@ -16,7 +16,12 @@ multgrid: multgrid.tex gen-grids.py
 
 .PHONY: multgrid
 
+mult100: mult100.tex
+	pdflatex mult100.tex
+
+.PHONY: mult100
+
 clean:
-	rm -f times*.pdf times*.aux times*.log add*.pdf add*.aux add*.log multgrid.pdf multgrid.aux multgrid.log grids.tex
+	rm -f times*.pdf times*.aux times*.log add*.pdf add*.aux add*.log multgrid.pdf multgrid.aux multgrid.log grids.tex mult100.pdf mult100.aux mult100.log
 
 .PHONY: clean
